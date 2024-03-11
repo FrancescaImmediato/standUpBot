@@ -1,7 +1,7 @@
 //hides bot token from github & viewers using gitignore and env while letting proj still have access
 require('dotenv').config();
 
-const {Client, IntentsBitField} = require('discord.js');
+const {Client, IntentsBitField,EmbedBuilder,} = require('discord.js');
 
 //gives bot permission to do access 'guild' aka discord server 
 const client = new Client({
@@ -32,23 +32,15 @@ client.on('interactionCreate', (interaction) => {
    if (!interaction.isChatInputCommand())return;
    console.log(interaction.commandName)
 
-   if (interaction.commandName == 'hey'){
-      interaction.reply('Hey, hey, hey');
+   if (interaction.commandName == 'embed'){
+      const embed = new EmbedBuilder()
+         .setTitle('Embed title')
+         .setDescription('This is the Embed description')
+         .setColor('Random')
+         .addFields({name: ' field title', value: 'a random field', inline: true ,});
+
+      interaction.reply({embeds:[
+         embed
+      ]});
    };
-
-   if (interaction.commandName == 'ping'){
-      interaction.reply('Pong!');}
-   if (interaction.commandName == 'test'){
-      interaction.reply('Passed');}
-
-   if(interaction.commandName=='add'){
-const num1 = interaction.options.get('first-num').value;
-const num2 = interaction.options.get('second-num').value;
-interaction.reply(`${num1} plus ${num2} equals ** ${num1+num2} **`);
-   }
-
-})
-
-const { version: discordJSVersion } = require('discord.js');
-console.log('Discord.js version:', discordJSVersion);
-
+});

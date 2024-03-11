@@ -3,37 +3,9 @@ const { REST, Routes, ApplicationCommandType, ApplicationCommandOptionType } = r
 
 //Define Commands
 const commands = [
-   { name: 'hey',
-      description: 'Replies a greeting',
+   {name: 'embed', 
+   description: 'Sends an embed',
    },
-   { name: 'ping',
-      description: 'PONG!',
-   },
-   { name: 'test',
-      description: 'Passed',
-   },
-   { name: 'add', 
-   description: 'adds two numbers', 
-   options: [
-      { name: 'first-num',   
-      description: 'the first number',
-      type: ApplicationCommandOptionType.Number,
-      choices: [
-         {
-            name: 'one',
-            value: 1,
-         },
-         {name: 'two',
-      value: 2,},
-      {name: 'three',
-   value: 3,},
-      ],
-   required: true,  }, 
-      { name: 'second-num', 
-      description: 'the second number',
-      type: ApplicationCommandOptionType.Number,
-   required: true,  }
-   ,],}
 ];
 
 
